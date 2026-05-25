@@ -48,19 +48,27 @@ REST API для платформы Kittygram — сервиса публикац
    ```bash
    python3 -m venv venv
    source venv/bin/activate    
-   # Для Windows: venv\Scripts\activate
-3. **Установка зависимостей:** 
-   ```bash                                                                                                                  pip install -r requirements.txt   
+   # Для Windows:venv\Scripts\activate
+
+3. **Установка зависимостей:**
+   pip install -r requirements.txt
+
 4. **Настройка переменных окружения:** 
-  Скопируйте .env.example в .env
-   # Windows 
-  copy .env.example .env
-  # Mac/Linux
-  cp .env.example .env
-  При необходимости отредактируйте файл .env.  
-5. **Миграции и создание суперпользователя:**                                                                            ```bash
- python manage.py migrate
- python manage.py createsuperuser
+   Скопируйте .env.example в .env
+   **# Windows:** 
+   copy .env.example .env
+   **# Mac/Linux:**
+   cp .env.example .env
+   При необходимости отредактируйте файл .env.  
+
+5. **Миграции и создание суперпользователя:** 
+   bash
+   python manage.py migrate
+   python manage.py createsuperuser
+6. **Запуск сервера разработки:**
+    bash
+    python manage.py runserver
+    API будет доступно по адресу: http://127.0.0.1:8000/api/
  
 
 ## Запуск через Docker
@@ -146,5 +154,5 @@ json
 ## Лицензия
 **Учебный проект. Не предназначен для коммерческого использования.**
 ## Контакты
-**GitHub: anasstasiakusch-tech
-Email: anasstasiakusch@gmail.com**
+**GitHub:** anasstasiakusch-tech
+**Email:** anasstasiakusch@gmail.com
