@@ -8,15 +8,17 @@ from django.db.models import Count
 
 from .models import Achievement, Cat
 from .serializers import AchievementSerializer, CatSerializer
+from .permissions import OwnerOrReadOnly  # ← добавить импорт
 
 
 class CatViewSet(viewsets.ModelViewSet):
     queryset = Cat.objects.all()
     serializer_class = CatSerializer
     pagination_class = PageNumberPagination
+    permission_classes = [OwnerOrReadOnly]  # ← добавить пермишен
 
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
-    filterset_fields = ('color', 'birth_year', 'tags__slug')  # фильтр по тегам
+    filterset_fields = ('color', 'birth_year', 'tags__slug')
     search_fields = ('name',)
     ordering_fields = ('name', 'birth_year')
     ordering = ('birth_year',)
